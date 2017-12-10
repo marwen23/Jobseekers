@@ -1,0 +1,121 @@
+MyApp\UserBundle\Entity\Company:
+    type: entity
+    table: company
+    indexes:
+        companyCreatorId:
+            columns:
+                - companyCreatorId
+    id:
+        companyid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: companyId
+            generator:
+                strategy: IDENTITY
+    fields:
+        companyname:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: companyName
+        email:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        description:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        year:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        url:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        maincompanyindustry:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: mainCompanyIndustry
+        country:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        city:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        address:
+            type: string
+            nullable: false
+            length: 256
+            options:
+                fixed: false
+        phone:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        fax:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        logo:
+            type: blob
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        image:
+            type: blob
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        companyspecialities:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: companySpecialities
+    manyToOne:
+        companycreatorid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                companyCreatorId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

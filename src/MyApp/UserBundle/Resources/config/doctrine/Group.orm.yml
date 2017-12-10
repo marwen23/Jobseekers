@@ -1,0 +1,58 @@
+MyApp\UserBundle\Entity\Group:
+    type: entity
+    table: group
+    indexes:
+        groupCreatorId:
+            columns:
+                - groupCreatorId
+    id:
+        groupid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: groupId
+            generator:
+                strategy: IDENTITY
+    fields:
+        groupname:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: groupName
+        description:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        topic:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+    manyToOne:
+        groupcreatorid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                groupCreatorId:
+                    referencedColumnName: id
+            orphanRemoval: false
+    manyToMany:
+        userid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: groupid
+            inversedBy: null
+            joinTable: null
+            orderBy: null
+    lifecycleCallbacks: {  }

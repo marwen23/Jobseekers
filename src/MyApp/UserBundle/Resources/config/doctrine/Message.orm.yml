@@ -1,0 +1,55 @@
+MyApp\UserBundle\Entity\Message:
+    type: entity
+    table: message
+    indexes:
+        conversationId:
+            columns:
+                - conversationId
+        senderId:
+            columns:
+                - senderId
+    id:
+        messageid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: messageId
+            generator:
+                strategy: IDENTITY
+    fields:
+        content:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        senderid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                senderId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+        conversationid:
+            targetEntity: Conversation
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                conversationId:
+                    referencedColumnName: conversationId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

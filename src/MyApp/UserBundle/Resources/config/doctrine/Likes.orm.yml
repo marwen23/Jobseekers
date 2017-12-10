@@ -1,0 +1,38 @@
+MyApp\UserBundle\Entity\Likes:
+    type: entity
+    table: likes
+    indexes:
+        articleId:
+            columns:
+                - articleId
+    id: {  }
+    fields:
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    oneToOne:
+        userid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                userId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+    manyToOne:
+        articleid:
+            targetEntity: Article
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                articleId:
+                    referencedColumnName: articleId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

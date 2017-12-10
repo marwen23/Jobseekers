@@ -1,0 +1,94 @@
+{% block head %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}JobSeekers{% endblock %}</title>
+        {% block stylesheets %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <link rel="shortcut icon" href="{{ asset('template/img/favicon.png') }}">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="{{ asset('template/style/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="{{ asset('template/style/icon.css') }}">
+            <link rel="stylesheet" href="{{ asset('template/style/loader.css') }}">
+            <link rel="stylesheet" href="{{ asset('template/style/idangerous.swiper.css') }}">
+            <link rel="stylesheet" href="{{ asset('template/style/stylesheet.css') }}">
+            <!--[if lt IE 10]>
+            <link rel="stylesheet" type="text/css" href="{{ asset('template/style/ie-9.css') }}" />
+            <![endif]-->
+            <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+            <![endif]-->
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+
+    {% endblock head %}
+
+    {% block headerNav %}
+        <!-- THE HEADER -->
+        <header>
+            <div class="container-fluid custom-container">
+                <div class="row no_row row-header">
+                    <div class="brand-be">
+                        <a href="index.html"><img src="{{ asset('template/img/logo.png') }}" alt="logo" class="be_logo">
+                        </a>
+                    </div>
+                    <div class="loginlogin-header-block">
+
+                    </div>
+                    <div class="header-menu-block">
+                        <button class="cmn-toggle-switch cmn-toggle-switch__htx"><span></span></button>
+                        <ul class="header-menu" id="one">
+                            <li class="active-header"><a href="{{ path('front_page_home') }}">Hall</a>
+                            <li><a href="{{ path('myProfile') }}">Profile</a>
+                            </li>
+                            <li><a href="search.html">Find Projects</a><i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li>
+                                        <a href="activity.html">ACTIVITY</a>
+                                        <i class="fa fa-angle-right"></i><i class="fa fa-angle-down"></i>
+                                        <ul>
+                                            <li><a href="page1.html">PAGE 1</a></li>
+                                            <li><a href="page2.html">PAGE 2</a></li>
+                                            <li><a href="page3.html">PAGE 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="search.html">SEARCH</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="activity.html">Jobs</a></li>
+                            {% if app.user %}
+                            <li style="margin-left: 210px;"><a href="search.html"> Welcome {{ app.user.firstName }} </a><i class="fa fa-angle-down"></i>
+                                <ul>
+                                    <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+
+
+                                </ul>
+                            </li>
+                            {% endif %}
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </header>
+    {% endblock %}
+
+    {% block body %}{% endblock %}
+{% block scripts %}
+        {% block javascripts %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+            <script src="{{ asset('template/script/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('template/script/idangerous.swiper.min.js') }}"></script>
+            <script src="{{ asset('template/script/isotope.pkgd.min.js') }}"></script>
+            <script src="{{ asset('template/script/jquery.viewportchecker.min.js') }}"></script>
+            <script src="{{ asset('template/script/global.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
+{% endblock scripts %}

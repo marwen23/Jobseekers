@@ -1,0 +1,65 @@
+MyApp\UserBundle\Entity\User:
+    type: entity
+    table: user
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id
+            generator:
+                strategy: IDENTITY
+    fields:
+        firstname:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: firstName
+        lastname:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: lastName
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        paypaladdress:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: paypalAddress
+        birthdate:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToMany:
+        groupid:
+            targetEntity: Group
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: userid
+            joinTable:
+                name: membership
+                joinColumns:
+                    -
+                        name: userId
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    -
+                        name: groupId
+                        referencedColumnName: groupId
+            orderBy: null
+    lifecycleCallbacks: {  }

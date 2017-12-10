@@ -1,0 +1,97 @@
+MyApp\UserBundle\Entity\Profile:
+    type: entity
+    table: profile
+    id:
+        profileid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: profileId
+            generator:
+                strategy: IDENTITY
+
+    fields:
+        professionalfield:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: professionalField
+        currentjob:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: currentJob
+        address:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        summary:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        language:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        cv:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        interests:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        profilepoints:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: profilePoints
+        flag:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        education:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        experience:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        image:
+            type: blob
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        contactemail:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+            column: contactEmail
+
+    lifecycleCallbacks: {  }

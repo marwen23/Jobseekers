@@ -1,0 +1,54 @@
+MyApp\UserBundle\Entity\Application:
+    type: entity
+    table: application
+    indexes:
+        jobId:
+            columns:
+                - jobId
+        userId:
+            columns:
+                - userId
+    id:
+        applicationid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: applicationId
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+    manyToOne:
+        jobid:
+            targetEntity: Job
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                jobId:
+                    referencedColumnName: jobId
+            orphanRemoval: false
+        userid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                userId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

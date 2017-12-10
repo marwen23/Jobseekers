@@ -1,0 +1,24 @@
+
+
+
+<h3> CV </h3> de <b>{{ user.firstName }} {{ user.lastName }} </b> <br>
+
+<img src="{{ pathToWeb }}/template/image/aa/profile.jpg">
+Domaine de Specialite: <b>{{ profile.professionalfield }}</b><br>
+Poste Actuel: <b>{{ profile.currentjob }}</b><br>
+Email: <b>{{ user.email }}</b><br>
+Adress: <b>{{ profile.address }}</b><br><br>
+
+Poste Actuel: <b>{{ profile.currentjob }}</b><br>
+Resume: <b>{{ profile.summary }}</b><br><br>
+
+Cursus Educatif: <b>{{ profile.education }}</b><br>
+Experience Professionnelle: <b>{{ profile.experience }}</b><br>
+Centres d'Interet: <b>{{ profile.summary }}</b><br>
+Langue Maitrise: <b>{{ profile.language }}</b><br><br>
+
+<b>Les Diffrentes Competences Maitrisees: </b></b><br>
+{% for skill in skills %}
+{{ skill.skillname }}<br>
+
+{% endfor %}

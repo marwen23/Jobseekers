@@ -1,0 +1,95 @@
+MyApp\UserBundle\Entity\Report:
+    type: entity
+    table: report
+    indexes:
+        reportedArticleId:
+            columns:
+                - reportedArticleId
+        reportedCommentId:
+            columns:
+                - reportedCommentId
+        reportedProfileId:
+            columns:
+                - reportedProfileId
+        reportedJobId:
+            columns:
+                - reportedJobId
+        reporterId:
+            columns:
+                - reporterId
+    id:
+        reportid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: reportId
+            generator:
+                strategy: IDENTITY
+    fields:
+        reporttype:
+            type: string
+            nullable: false
+            length: 2000
+            options:
+                fixed: false
+            column: reportType
+        date:
+            type: string
+            nullable: false
+            length: 2000
+            options:
+                fixed: false
+    manyToOne:
+        reportedarticleid:
+            targetEntity: Article
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                reportedArticleId:
+                    referencedColumnName: articleId
+            orphanRemoval: false
+        reportedcommentid:
+            targetEntity: Comment
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                reportedCommentId:
+                    referencedColumnName: commentId
+            orphanRemoval: false
+        reportedprofileid:
+            targetEntity: Profile
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                reportedProfileId:
+                    referencedColumnName: profileId
+            orphanRemoval: false
+        reportedjobid:
+            targetEntity: Job
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                reportedJobId:
+                    referencedColumnName: jobId
+            orphanRemoval: false
+        reporterid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                reporterId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

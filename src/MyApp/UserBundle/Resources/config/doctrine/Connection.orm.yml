@@ -1,0 +1,48 @@
+MyApp\UserBundle\Entity\Connection:
+    type: entity
+    table: connection
+    indexes:
+        userOneId:
+            columns:
+                - activeUserId
+        userTwoId:
+            columns:
+                - passiveUserId
+    id:
+        connectionid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: connectionId
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        activeuserid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                activeUserId:
+                    referencedColumnName: id
+            orphanRemoval: false
+        passiveuserid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                passiveUserId:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

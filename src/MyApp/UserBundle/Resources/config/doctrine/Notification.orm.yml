@@ -1,0 +1,85 @@
+MyApp\UserBundle\Entity\Notification:
+    type: entity
+    table: notification
+    indexes:
+        activeUserId:
+            columns:
+                - activeUserId
+        passiveUserId:
+            columns:
+                - passiveUserId
+        applicationId:
+            columns:
+                - applicationId
+        articleId:
+            columns:
+                - articleId
+    id:
+        notificationid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: notificationId
+            generator:
+                strategy: IDENTITY
+    fields:
+        status:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        date:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+        type:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        activeuserid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                activeUserId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+        passiveuserid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                passiveUserId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+        articleid:
+            targetEntity: Article
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                articleId:
+                    referencedColumnName: articleId
+            orphanRemoval: false
+        applicationid:
+            targetEntity: Application
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                applicationId:
+                    referencedColumnName: applicationId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

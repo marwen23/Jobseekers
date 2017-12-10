@@ -1,0 +1,91 @@
+MyApp\UserBundle\Entity\Job:
+    type: entity
+    table: job
+    indexes:
+        jobCreatorId:
+            columns:
+                - jobCreatorId
+    id:
+        jobid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: jobId
+            generator:
+                strategy: IDENTITY
+    fields:
+        title:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+        company:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        location:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        category:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        language:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        jobdescription:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: jobDescription
+        jobrequirements:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+            column: JobRequirements
+        date:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        flag:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    manyToOne:
+        jobcreatorid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                jobCreatorId:
+                    referencedColumnName: userId
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

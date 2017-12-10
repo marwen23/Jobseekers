@@ -1,0 +1,43 @@
+MyApp\UserBundle\Entity\Skill:
+    type: entity
+    table: skill
+    indexes:
+        userId:
+            columns:
+                - userId
+    id:
+        skillid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: skillId
+            generator:
+                strategy: IDENTITY
+    fields:
+        skillname:
+            type: string
+            nullable: false
+            length: 20
+            options:
+                fixed: false
+            column: skillName
+        skillpoints:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: skillPoints
+    manyToOne:
+        userid:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                userId:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

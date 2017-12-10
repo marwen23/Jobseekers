@@ -1,0 +1,5 @@
+_user_import:
+    resource: "@MyAppUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
